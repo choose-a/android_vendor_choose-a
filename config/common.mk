@@ -34,6 +34,13 @@ PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/bin/50-hosts.sh:system/addon.d/50-hosts.sh \
     vendor/choose-a/prebuilt/bin/blacklist:system/addon.d/blacklist
 
+ifeq ($(AB_OTA_UPDATER),true)
+PRODUCT_COPY_FILES += \
+    vendor/choose/prebuilt/bin/backuptool_ab.sh:system/bin/backuptool_ab.sh \
+    vendor/choose/prebuilt/bin/backuptool_ab.functions:system/bin/backuptool_ab.functions \
+    vendor/choose/prebuilt/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
+endif
+
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/etc/sysconfig/backup.xml:system/etc/sysconfig/backup.xml
