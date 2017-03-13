@@ -16,9 +16,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.root_access=1
 
 # enable ADB authentication if not on eng build
-ifneq ($(TARGET_BUILD_VARIANT),eng)
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES  += ro.adb.secure=1
-endif
+#ifneq ($(TARGET_BUILD_VARIANT),eng)
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES  += ro.adb.secure=0
+#endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
