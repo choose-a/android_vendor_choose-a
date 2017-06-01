@@ -1,7 +1,7 @@
 #
 # This policy configuration will be used by all products that
-# inherit from Omni
+# inherit from choose-a
 #
 
 BOARD_SEPOLICY_DIRS += \
-    vendor/omni/sepolicy
+    vendor/choose-a/sepolicy

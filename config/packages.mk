@@ -1,25 +1,16 @@
 # Additional packages
-ifneq ($(TARGET_LOW_RAM_DEVICE), true)
 PRODUCT_PACKAGES += \
     Basic \
     Development
-endif
 
 # Additional apps
 PRODUCT_PACKAGES += \
-    MonthCalendarWidget \
-    OpenDelta \
-    OmniSwitch \
-    Chromium \
-    OmniJaws \
-    OmniStyle \
-    QuickSearchBox \
-    OmniClockOSS \
-    MusicFX \
     audio_effects.conf \
+    MonthCalendarWidget \
+    MusicFX \
     libcyanogen-dsp \
     Phonograph \
-    Turbo
+    QuickSearchBox
 
 PRODUCT_PACKAGES += \
     CellBroadcastReceiver
@@ -41,13 +32,3 @@ PRODUCT_PACKAGES += \
     mkfs.ntfs \
     mount.ntfs \
     fsck.ntfs
-
-# Telephony extension
-PRODUCT_PACKAGES += telephony-ext
-PRODUCT_BOOT_JARS += telephony-ext
-
-# OMS support
-PRODUCT_PACKAGES += ThemeInterfacer
-
-# for easter fun
-PRODUCT_PACKAGES += EggGame
