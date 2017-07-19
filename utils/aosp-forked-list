@@ -13,5 +13,6 @@ hardware/qcom/keymaster
 hardware/qcom/media
 hardware/libhardware
 system/core
+system/extras
 system/media
 system/sepolicy
