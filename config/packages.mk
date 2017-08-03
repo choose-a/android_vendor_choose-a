@@ -1,7 +1,8 @@
 # Additional packages
 PRODUCT_PACKAGES += \
     Basic \
-    Development
+    Development \
+    OpenDelta
 
 # Additional apps
 PRODUCT_PACKAGES += \
