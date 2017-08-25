@@ -1,6 +1,5 @@
 bionic
-build
-external/libnfc-nci
+build/make
 external/tinycompress
 external/toybox
 external/svox
