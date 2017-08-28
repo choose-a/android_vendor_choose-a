@@ -26,6 +26,9 @@ while read path;
     do
 
     project=`echo android_${path} | sed -e 's/\//\_/g'`
+    if echo $project | grep "android_build_make" > /dev/null ; then
+        project="android_build"
+    fi
 
     echo ""
     echo "====================================================================="

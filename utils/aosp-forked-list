@@ -1,5 +1,6 @@
 bionic
 build/make
+build/soong
 external/tinycompress
 external/toybox
 external/svox
