@@ -9,6 +9,7 @@ frameworks/base
 hardware/qcom/audio
 hardware/qcom/bt
 hardware/qcom/display
+hardware/qcom/gps
 hardware/qcom/keymaster
 hardware/qcom/media
 hardware/libhardware
