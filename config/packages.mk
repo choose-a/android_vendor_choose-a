@@ -8,7 +8,6 @@ PRODUCT_PACKAGES += \
     audio_effects.conf \
     MonthCalendarWidget \
     MusicFX \
-    libcyanogen-dsp \
     Phonograph \
     QuickSearchBox
 
