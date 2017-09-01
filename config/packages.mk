@@ -21,3 +21,8 @@ PRODUCT_PACKAGES += \
     powertop \
     tune2fs \
     vim
+
+# Themes
+PRODUCT_PACKAGES += \
+    PixelTheme \
+    Stock
