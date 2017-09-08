@@ -35,6 +35,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
+# Bootanimation
+PRODUCT_COPY_FILES += \
+    vendor/choose-a/prebuilt/bootanimation/1080/bootanimation.zip:system/media/bootanimation.zip
+
 # Additional packages
 -include vendor/choose-a/config/packages.mk
 
