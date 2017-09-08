@@ -17,9 +17,9 @@
 echo -e "Enter the username"
 read username
 
-url="gerrit.omnirom.org"
+url="review.choose-a.name"
 port="29418"
-branch="android-7.1"
+branch="choose-8.0"
 
 cd ../../../
 
@@ -27,6 +27,9 @@ while read path;
     do
 
     project=`echo android_${path} | sed -e 's/\//\_/g'`
+    if [ "${project}" == "android_build_make" ] ; then
+        project="android_build"
+    fi
 
     echo ""
     echo "====================================================================="
@@ -36,10 +39,10 @@ while read path;
     cd $path;
 
     echo " Pushing..."
-    echo " git push --no-thin ssh://${username}@${url}:${port}/${project} HEAD:refs/heads/${branch}"
-    git push --no-thin ssh://${username}@${url}:${port}/${project} HEAD:refs/heads/${branch}
+    echo " git push --no-thin ssh://${username}@${url}:${port}/choose-a/${project} HEAD:refs/heads/${branch}"
+    git push --no-thin ssh://${username}@${url}:${port}/choose-a/${project} HEAD:refs/heads/${branch}
     echo ""
 
     cd - > /dev/null
 
-done < vendor/omni/utils/aosp-forked-list
+done < vendor/choose-a/utils/aosp-forked-list

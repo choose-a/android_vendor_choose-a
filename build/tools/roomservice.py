@@ -36,22 +36,25 @@ except ImportError:
 
 # Config
 # set this to the default remote to use in repo
-default_rem = "omnirom"
+default_rem = "choose-a"
 # set this to the default revision to use (branch/tag name)
-default_rev = "android-8.0"
+default_rev = "choose-8.0"
 # set this to the remote that you use for projects from your team repos
-# example fetch="https://github.com/omnirom"
-default_team_rem = "omnirom"
+# example fetch="https://github.com/choose-a"
+default_team_rem = "choose-a"
 # this shouldn't change unless google makes changes
 local_manifest_dir = ".repo/local_manifests"
 # change this to your name on github (or equivalent hosting)
-android_team = "omnirom"
+android_team = "choose-a"
 # url to gerrit repository
-gerrit_url = "gerrit.omnirom.org"
+gerrit_url = "review.choose-a.name"
 
+
+def urldecode(s):
+    return urllib2.unquote(s).decode('utf8')
 
 def check_repo_exists(git_data, device):
-    re_match = "^android_device_.*_{device}$".format(device=device)
+    re_match = "^choose.*android_device_.*_{device}$".format(device=device)
     matches = filter(lambda x: re.match(re_match, x), git_data)
     if len(matches) != 1:
         raise Exception("{device} not found,"
@@ -62,7 +65,7 @@ def check_repo_exists(git_data, device):
 
 def search_gerrit_for_device(device):
     # TODO: In next gerrit release regex search with r= should be supported!
-    git_search_url = "https://{gerrit_url}/projects/?m={device}".format(
+    git_search_url = "https://{gerrit_url}/projects/?r=choose.*{device}".format(
         gerrit_url=gerrit_url,
         device=device
     )
@@ -84,7 +87,7 @@ def search_gerrit_for_device(device):
 
 
 def parse_device_directory(device_url, device):
-    pattern = "^android_device_(?P<vendor>.+)_{}$".format(device)
+    pattern = "^choose.*android_device_(?P<vendor>.+)_{}$".format(device)
     match = re.match(pattern, device_url)
 
     if match is None:
@@ -184,7 +187,7 @@ def write_to_manifest(manifest):
 def parse_device_from_manifest(device):
     for project in iterate_manifests():
         name = project.get('name')
-        if name.startswith("android_device_") and name.endswith(device):
+        if name.startswith("choose-a/android_device_") and name.endswith(device):
             return project.get('path')
     return None
 
@@ -207,7 +210,7 @@ def parse_device_from_folder(device):
 
 
 def parse_dependency_file(location):
-    dep_file = "omni.dependencies"
+    dep_file = "repo.dependencies"
     dep_location = '/'.join([location, dep_file])
     if not os.path.isfile(dep_location):
         print("WARNING: %s file not found" % dep_location)
@@ -230,17 +233,18 @@ def check_manifest_problems(dependencies):
 
         # check for existing projects
         for project in iterate_manifests():
-            if project.get("path") == target_path and project.get("revision") != revision:
-                print("WARNING: detected conflict in revisions for repository ", repository)
-                current_dependency = str(project.get(repository))
-                file = ES.parse('/'.join([local_manifest_dir, "roomservice.xml"]))
-                file_root = file.getroot()
-                for current_project in file_root.findall('project'):
-                    new_dependency = str(current_project.find('revision'))
-                    if new_dependency == current_dependency:
-                        file_root.remove(current_project)
-                file.write('/'.join([local_manifest_dir, "roomservice.xml"]))
-                return
+            if project.get("revision") is not None and project.get("path") is not None:
+                if project.get("path") == target_path and project.get("revision") != revision:
+                    print("WARNING: detected conflict in revisions for repository ", repository)
+                    current_dependency = str(project.get(repository))
+                    file = ES.parse('/'.join([local_manifest_dir, "roomservice.xml"]))
+                    file_root = file.getroot()
+                    for current_project in file_root.findall('project'):
+                        new_dependency = str(current_project.find('revision'))
+                        if new_dependency == current_dependency:
+                            file_root.remove(current_project)
+                    file.write('/'.join([local_manifest_dir, "roomservice.xml"]))
+                    return
 
 def create_dependency_manifest(dependencies):
     projects = []
@@ -255,7 +259,7 @@ def create_dependency_manifest(dependencies):
         if remote == "github":
             if "/" not in repository:
                 repository = '/'.join([android_team, repository])
-        project = create_manifest_project(repository,
+        project = create_manifest_project(urldecode(repository),
                                           target_path,
                                           remote=remote,
                                           revision=revision)
@@ -268,7 +272,7 @@ def create_dependency_manifest(dependencies):
 
 
 def create_common_dependencies_manifest(dependencies):
-    dep_file = "omni.dependencies"
+    dep_file = "repo.dependencies"
     common_list = []
     if dependencies is not None:
         for dependency in dependencies:
@@ -321,7 +325,7 @@ def fetch_device(device):
     if git_data is not None:
         device_url = git_data['id']
         device_dir = parse_device_directory(device_url, device)
-        project = create_manifest_project(device_url,
+        project = create_manifest_project(urldecode(device_url),
                                       device_dir,
                                       remote=default_team_rem)
         if project is not None:

@@ -687,8 +687,8 @@ function oat2dex() {
     local VDEX=
 
     if [ -z "$BAKSMALIJAR" ] || [ -z "$SMALIJAR" ]; then
-        export BAKSMALIJAR="$CM_ROOT"/vendor/omni/build/tools/smali/baksmali.jar
-        export SMALIJAR="$CM_ROOT"/vendor/omni/build/tools/smali/smali.jar
+        export BAKSMALIJAR="$CM_ROOT"/vendor/choose-a/build/tools/smali/baksmali.jar
+        export SMALIJAR="$CM_ROOT"/vendor/choose-a/build/tools/smali/smali.jar
     fi
 
     # Extract existing boot.oats to the temp folder
@@ -843,7 +843,7 @@ function extract() {
             # If OTA is block based, extract it.
             elif [ -a "$DUMPDIR"/system.new.dat ]; then
                 echo "Converting system.new.dat to system.img"
-                python "$CM_ROOT"/vendor/omni/build/tools/sdat2img.py "$DUMPDIR"/system.transfer.list "$DUMPDIR"/system.new.dat "$DUMPDIR"/system.img 2>&1
+                python "$CM_ROOT"/vendor/choose-a/build/tools/sdat2img.py "$DUMPDIR"/system.transfer.list "$DUMPDIR"/system.new.dat "$DUMPDIR"/system.img 2>&1
                 rm -rf "$DUMPDIR"/system.new.dat "$DUMPDIR"/system
                 mkdir "$DUMPDIR"/system "$DUMPDIR"/tmp
                 echo "Requesting sudo access to mount the system.img"

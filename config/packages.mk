@@ -1,13 +1,7 @@
 # Additional apps
 PRODUCT_PACKAGES += \
     MonthCalendarWidget \
-    OpenDelta \
-    OmniSwitch \
-    Chromium \
-    OmniJaws \
-    OmniStyle \
     QuickSearchBox \
-    OmniClockOSS \
     MusicFX \
     audio_effects.conf \
     libcyanogen-dsp \
@@ -33,19 +27,8 @@ PRODUCT_PACKAGES += \
     mount.ntfs \
     fsck.ntfs
 
-# Telephony extension
-PRODUCT_PACKAGES += telephony-ext
-PRODUCT_BOOT_JARS += telephony-ext
-
-# OMS support
-#PRODUCT_PACKAGES += ThemeInterfacer \
-    OmniTheme \
-    OmniSubs
-
 # Themes
 PRODUCT_PACKAGES += \
     PixelTheme \
     Stock
 
-# for easter fun
-#PRODUCT_PACKAGES += EggGame

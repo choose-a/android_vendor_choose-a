@@ -26,6 +26,9 @@ while read path;
     do
 
     project=`echo android_${path} | sed -e 's/\//\_/g'`
+    if [ "${project}" == "android_build_make" ] ; then
+        project="android_build"
+    fi
 
     echo ""
     echo "====================================================================="
@@ -57,4 +60,4 @@ while read path;
 
     cd - > /dev/null
 
-done < vendor/omni/utils/aosp-forked-list
+done < vendor/choose-a/utils/aosp-forked-list

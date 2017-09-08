@@ -1,6 +1,6 @@
-function __print_omni_functions_help() {
+function __print_choose_functions_help() {
 cat <<EOF
-Additional OmniROM functions:
+Additional choose-a functions:
 - breakfast:       Setup the build environment, but only list
                    devices we support.
 - brunch:          Sets up build environment using breakfast(),
@@ -47,11 +47,11 @@ function breakfast()
             # A buildtype was specified, assume a full device name
             lunch $target
         else
-            # This is probably just the omni model name
+            # This is probably just the choose-a model name
             if [ -z "$variant" ]; then
                 variant="userdebug"
             fi
-            lunch omni_$target-$variant
+            lunch choose_$target-$variant
         fi
     fi
     return $?
@@ -100,6 +100,6 @@ function pushboot() {
 function repopick() {
     set_stuff_for_environment
     T=$(gettop)
-    $T/vendor/omni/build/tools/repopick.py $@
+    $T/vendor/choose-a/build/tools/repopick.py $@
 }
 
