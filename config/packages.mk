@@ -1,11 +1,10 @@
 # Additional apps
 PRODUCT_PACKAGES += \
-    MonthCalendarWidget \
-    QuickSearchBox \
     MusicFX \
     audio_effects.conf \
     libcyanogen-dsp \
     Phonograph \
+    Stk \
     Turbo \
     MatLog
 
@@ -22,10 +21,7 @@ PRODUCT_PACKAGES += \
     openvpn \
     powertop \
     tune2fs \
-    vim \
-    mkfs.ntfs \
-    mount.ntfs \
-    fsck.ntfs
+    vim
 
 # Themes
 PRODUCT_PACKAGES += \

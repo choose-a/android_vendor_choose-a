@@ -4,13 +4,8 @@ PRODUCT_BRAND ?= choose-a
 PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/bootanimation/1080/bootanimation.zip:system/media/bootanimation.zip
 
-ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase=android-google
-else
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
-endif
 
 # general properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -34,10 +29,6 @@ PRODUCT_COPY_FILES += \
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/etc/sysconfig/backup.xml:system/etc/sysconfig/backup.xml
-
-# Enable SIP and VoIP on all targets
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
 # custom omni sounds
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -65,5 +56,3 @@ PRODUCT_COPY_FILES += \
 # Versioning
 -include vendor/choose-a/config/version.mk
 
-# Add our overlays
-PRODUCT_PACKAGE_OVERLAYS += vendor/choose-a/overlay/common
