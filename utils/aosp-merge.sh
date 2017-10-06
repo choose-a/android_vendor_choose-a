@@ -26,8 +26,10 @@ while read path;
     do
 
     project=`echo android_${path} | sed -e 's/\//\_/g'`
+    aosp_project=${path}
     if [ "${project}" == "android_build_make" ] ; then
         project="android_build"
+        aosp_project="build"
     fi
 
     echo ""
@@ -48,7 +50,7 @@ while read path;
     repo start ${branch_name} .
 
     if ! git remote | grep "aosp" > /dev/null; then
-        git remote add aosp https://android.googlesource.com/platform/$path > /dev/null
+        git remote add aosp https://android.googlesource.com/platform/$aosp_project > /dev/null
     fi
 
     git fetch --tags aosp
