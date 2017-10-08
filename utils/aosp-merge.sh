@@ -1,0 +1,65 @@
+#!/bin/bash
+#
+# Copyright (C) 2016 OmniROM Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+echo -e "Enter the AOSP ref to merge"
+read ref
+
+branch_name=${ref}"-merge"
+# echo $branch_name
+
+cd ../../../
+
+while read path;
+    do
+
+    project=`echo android_${path} | sed -e 's/\//\_/g'`
+    aosp_project=${path}
+    if [ "${project}" == "android_build_make" ] ; then
+        project="android_build"
+        aosp_project="build"
+    fi
+
+    echo ""
+    echo "====================================================================="
+    echo " PROJECT: ${project} -> [ ${path}/ ]"
+    echo ""
+
+    cd $path;
+
+    git merge --abort;
+
+    repo sync -d .
+
+    if git branch | grep ${branch_name} > /dev/null; then
+        git branch -D ${branch_name} > /dev/null
+    fi
+
+    repo start ${branch_name} .
+
+    if ! git remote | grep "aosp" > /dev/null; then
+        git remote add aosp https://android.googlesource.com/platform/$aosp_project > /dev/null
+    fi
+
+    git fetch --tags aosp
+
+    #echo "====================================================================="
+    #echo " Merging {$ref}"
+    #echo "====================================================================="
+    git merge $ref;
+
+    cd - > /dev/null
+
+done < vendor/choose-a/utils/aosp-forked-list
