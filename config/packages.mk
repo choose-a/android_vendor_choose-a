@@ -2,6 +2,7 @@
 PRODUCT_PACKAGES += \
     audio_effects.conf \
     libcyanogen-dsp \
+    MatLog \
     MusicFX \
     Phonograph \
     Stk \
