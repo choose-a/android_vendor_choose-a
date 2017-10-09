@@ -1,10 +1,11 @@
 # Additional apps
 PRODUCT_PACKAGES += \
-    MusicFX \
     audio_effects.conf \
     libcyanogen-dsp \
+    MusicFX \
     Phonograph \
-    Stk
+    Stk \
+    Turbo
 
 # Additional tools
 PRODUCT_PACKAGES += \
