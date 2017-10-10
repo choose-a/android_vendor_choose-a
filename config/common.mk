@@ -9,10 +9,6 @@ PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/bootanimation/1080p/bootanimation.zip:system/media/bootanimation.zip
 endif
 
-# Snapdragon camera
-PRODUCT_PACKAGES += \
-    SnapdragonCamera
-
 # DRM
 PRODUCT_COPY_FILES +=  \
     vendor/choose-a/prebuilt/vendor/bin/move_widevine_data.sh:$(TARGET_COPY_OUT_VENDOR)/bin/move_widevine_data.sh \
@@ -24,19 +20,8 @@ PRODUCT_COPY_FILES +=  \
 PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
 
-ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.google.clientidbase=android-google
-else
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
-endif
-
 # general properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
-    ro.com.android.wifi-watchlist=GoogleGuest \
-    ro.setupwizard.enterprise_mode=1 \
     ro.build.selinux=1 \
     persist.sys.disable_rescue=true
 
@@ -57,7 +42,7 @@ PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/etc/sysconfig/backup.xml:system/etc/sysconfig/backup.xml
 
 # Add overlays
-PRODUCT_PACKAGE_OVERLAYS += vendor/choose-a/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/choose-a/overlay
 
 # Permissions Google Apps
 PRODUCT_COPY_FILES += \
@@ -72,6 +57,9 @@ PRODUCT_COPY_FILES += \
 
 # Additional packages
 -include vendor/choose-a/config/packages.mk
+
+# Opengapps and Google properties
+-include vendor/choose-a/config/gms.mk
 
 # Versioning
 -include vendor/choose-a/config/version.mk
