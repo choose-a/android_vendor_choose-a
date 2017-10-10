@@ -5,8 +5,7 @@ PRODUCT_PACKAGES += \
     MusicFX \
     OpenDelta \
     Phonograph \
-    Stk \
-    Turbo
+    Stk
 
 # Additional tools
 PRODUCT_PACKAGES += \
