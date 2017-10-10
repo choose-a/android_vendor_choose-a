@@ -4,9 +4,21 @@ PRODUCT_BRAND ?= choose-a
 PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/bootanimation/1080/bootanimation.zip:system/media/bootanimation.zip
 
+ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.com.google.clientidbase=android-google
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
+endif
+
 # general properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.root_access=1
+    ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
+    ro.com.android.wifi-watchlist=GoogleGuest \
+    ro.setupwizard.enterprise_mode=1 \
+    ro.build.selinux=1 \
+    persist.sys.disable_rescue=true
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
