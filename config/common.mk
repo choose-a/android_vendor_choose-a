@@ -22,6 +22,9 @@ PRODUCT_COPY_FILES += \
 # Additional packages
 -include vendor/choose-a/config/packages.mk
 
+# Opengapps and Google properties
+-include vendor/choose-a/config/gms.mk
+
 # Versioning
 -include vendor/choose-a/config/version.mk
 

@@ -5,8 +5,7 @@ PRODUCT_PACKAGES += \
     MatLog \
     MusicFX \
     Phonograph \
-    Stk \
-    Turbo
+    Stk
 
 # Additional tools
 PRODUCT_PACKAGES += \
