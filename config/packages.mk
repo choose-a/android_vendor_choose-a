@@ -1,12 +1,9 @@
 # Additional apps
 PRODUCT_PACKAGES += \
-    Chromium \
     MonthCalendarWidget \
     MusicFX \
     OpenDelta \
-    Phonograph \
-    Stk \
-    Turbo
+    Stk
 
 # Additional tools
 PRODUCT_PACKAGES += \
