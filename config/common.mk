@@ -9,10 +9,6 @@ PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/bootanimation/1080p/bootanimation.zip:system/media/bootanimation.zip
 endif
 
-# Snapdragon camera
-PRODUCT_PACKAGES += \
-    SnapdragonCamera
-
 # DRM
 PRODUCT_COPY_FILES +=  \
     vendor/choose-a/prebuilt/vendor/bin/move_widevine_data.sh:$(TARGET_COPY_OUT_VENDOR)/bin/move_widevine_data.sh \
@@ -72,6 +68,9 @@ PRODUCT_COPY_FILES += \
 
 # Additional packages
 -include vendor/choose-a/config/packages.mk
+
+# Opengapps and Google properties
+-include vendor/choose-a/config/gms.mk
 
 # Versioning
 -include vendor/choose-a/config/version.mk
