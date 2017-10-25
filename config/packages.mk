@@ -3,6 +3,7 @@ PRODUCT_PACKAGES += \
     audio_effects.conf \
     libcyanogen-dsp \
     MatLog \
+    MonthCalendarWidget \
     MusicFX \
     Phonograph \
     Stk \
