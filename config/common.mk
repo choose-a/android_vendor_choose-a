@@ -68,3 +68,5 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/choose-a/overlay/common
 # Versioning
 -include vendor/choose-a/config/version.mk
 
+# Include optional extras
+-include vendor/choose-a/config/gms.mk
