@@ -1,5 +1,9 @@
 VENDOR_CHOOSE_PATH := vendor/choose-a
 
+# DRM
+PRODUCT_COPY_FILES +=  \
+    $(VENDOR_CHOOSE_PATH)/prebuilt/common/vendor/lib/mediadrm/libwvdrmengine.so:system/vendor/lib/mediadrm/libwvdrmengine.so
+
 # Google property overides
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
