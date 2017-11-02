@@ -1,3 +1,5 @@
+VENDOR_CHOOSE_PATH := vendor/choose-a
+
 # Google property overrides
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.control_privapp_permissions=enforce \
@@ -40,5 +42,9 @@ PRODUCT_PACKAGES += \
     LatinImeGoogle \
     Music2 \
     TagGoogle
+
+# DRM
+PRODUCT_COPY_FILES +=  \
+    $(VENDOR_CHOOSE_PATH)/prebuilt/common/vendor/lib/mediadrm/libwvdrmengine.so:system/vendor/lib/mediadrm/libwvdrmengine.so
 
 $(call inherit-product-if-exists, vendor/opengapps/build/opengapps-packages.mk)
