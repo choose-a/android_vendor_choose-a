@@ -5,6 +5,7 @@ PRODUCT_PACKAGES += \
     MatLog \
     MonthCalendarWidget \
     MusicFX \
+    OpenDelta \
     Phonograph \
     Stk \
     Turbo
