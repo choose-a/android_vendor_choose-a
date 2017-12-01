@@ -31,6 +31,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/etc/sysconfig/backup.xml:system/etc/sysconfig/backup.xml
 
+# SELinux
+-include vendor/choose-a/sepolicy/sepolicy.mk
+
 # Additional packages
 -include vendor/choose-a/config/packages.mk
 
