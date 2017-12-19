@@ -1,0 +1,5 @@
+# Allow reading thermall sysfs
+r_dir_file(untrusted_app_all, sysfs_thermal)
+
+# Allow reading proc stat
+r_dir_file(untrusted_app_all, proc_stat)
