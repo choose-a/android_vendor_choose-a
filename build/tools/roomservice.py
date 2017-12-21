@@ -38,7 +38,7 @@ except ImportError:
 # set this to the default remote to use in repo
 default_rem = "choose-a"
 # set this to the default revision to use (branch/tag name)
-default_rev = "choose-8.0"
+default_rev = "choose-8.1"
 # set this to the remote that you use for projects from your team repos
 # example fetch="https://github.com/choose-a"
 default_team_rem = "choose-a"
