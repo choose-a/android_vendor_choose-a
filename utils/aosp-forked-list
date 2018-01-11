@@ -4,7 +4,6 @@ build/soong
 frameworks/av
 frameworks/base
 hardware/qcom/audio
-hardware/qcom/bootctrl
 hardware/qcom/bt
 hardware/qcom/display
 hardware/qcom/gps
