@@ -1,6 +1,7 @@
 # Additional apps
 PRODUCT_PACKAGES += \
     audio_effects.conf \
+    Chromium \
     libcyanogen-dsp \
     MatLog \
     MonthCalendarWidget \
