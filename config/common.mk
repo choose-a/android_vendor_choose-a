@@ -31,6 +31,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1 \
     persist.sys.disable_rescue=true
 
+# Tethering - allow without requiring a provisioning app
+# (for devices that check this)
+PRODUCT_PROPERTY_OVERRIDES += \
+    net.tethering.noprovisioning=true
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh \
