@@ -47,6 +47,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/etc/sysconfig/backup.xml:system/etc/sysconfig/backup.xml
 
+# Add overlays
+PRODUCT_PACKAGE_OVERLAYS += vendor/choose-a/overlay/common
+
 # SELinux
 -include vendor/choose-a/sepolicy/sepolicy.mk
 
