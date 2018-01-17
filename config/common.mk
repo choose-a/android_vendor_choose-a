@@ -4,6 +4,13 @@ PRODUCT_BRAND ?= choose-a
 PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/bootanimation/1080/bootanimation.zip:system/media/bootanimation.zip
 
+# DRM
+PRODUCT_COPY_FILES +=  \
+    vendor/choose-a/prebuilt/vendor/lib/mediadrm/libwvdrmengine.so:$(TARGET_COPY_OUT_VENDOR)/lib/mediadrm/libwvdrmengine.so \
+    vendor/choose-a/prebuilt/vendor/bin/hw/android.hardware.drm@1.0-service.widevine:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.drm@1.0-service.widevine \
+    vendor/choose-a/prebuilt/vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.drm@1.0-service.widevine.rc \
+    vendor/choose-a/prebuilt/vendor/lib/libwvhidl.so:$(TARGET_COPY_OUT_VENDOR)/lib/libwvhidl.so
+
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase=android-google
