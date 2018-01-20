@@ -1,8 +1,13 @@
 PRODUCT_BRAND ?= choose-a
 
 # Bootanimation
+ifneq ($(filter kugo lilac,$(TARGET_DEVICE)),)
 PRODUCT_COPY_FILES += \
-    vendor/choose-a/prebuilt/bootanimation/1080/bootanimation.zip:system/media/bootanimation.zip
+    vendor/choose-a/prebuilt/bootanimation/720p/bootanimation.zip:system/media/bootanimation.zip
+else
+PRODUCT_COPY_FILES += \
+    vendor/choose-a/prebuilt/bootanimation/1080p/bootanimation.zip:system/media/bootanimation.zip
+endif
 
 # DRM
 PRODUCT_COPY_FILES +=  \
