@@ -19,13 +19,15 @@ PRODUCT_PACKAGES += \
     lsof \
     mke2fs \
     mount.exfat \
+    mkshrc_vendor \
     nano \
     openvpn \
     powertop \
+    sh_vendor \
+    toybox_vendor \
     tune2fs \
     vim
 
 # Themes
 PRODUCT_PACKAGES += \
-    PixelTheme \
-    Stock
+    PixelTheme
