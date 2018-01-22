@@ -8,6 +8,7 @@ hardware/qcom/bt
 hardware/qcom/display
 hardware/qcom/gps
 hardware/qcom/media
+packages/apps/Settings
 packages/inputmethods/LatinIME
 system/core
 system/media
