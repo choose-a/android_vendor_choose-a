@@ -16,7 +16,7 @@ cp -f /tmp/install/bin/backuptool.functions /tmp
 preserve_addon_d() {
   if [ -d $S/addon.d/ ]; then
     mkdir -p /tmp/addon.d/
-    cp -a $S/addon.d/* /tmp/addon.d/
+    cp -a /system/addon.d/* /tmp/addon.d/
 
     # Discard any scripts that aren't at least our version level
     for f in /postinstall/tmp/addon.d/*sh; do
