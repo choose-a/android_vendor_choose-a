@@ -27,8 +27,8 @@ while read path;
     do
 
     project=`echo android_${path} | sed -e 's/\//\_/g'`
-    if [ "${project}" == "android_build_make" ] ; then
-        project="android_build"
+    if [ "${path}" == "build" ] ; then
+        path="build/make";
     fi
 
     echo ""
