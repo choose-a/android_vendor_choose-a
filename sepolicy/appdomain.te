@@ -1,0 +1,2 @@
+# External storage
+allow appdomain storage_stub_file:dir getattr;

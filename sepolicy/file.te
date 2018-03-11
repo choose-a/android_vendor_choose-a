@@ -1,0 +1,3 @@
+# Filesystem tools
+type exfat, sdcard_type, fs_type, mlstrustedobject;
+type fuseblk, sdcard_type, fs_type, mlstrustedobject;
