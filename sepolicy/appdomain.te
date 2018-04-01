@@ -1,6 +1,2 @@
 # External storage
 allow appdomain storage_stub_file:dir getattr;
-
-# Widevine
-allow appdomain net_dns_prop:file r_file_perms;
-allow appdomain { persist_file qdsp_file }:dir getattr;
