@@ -1,2 +1,5 @@
 # External storage
 allow appdomain storage_stub_file:dir getattr;
+
+# Su
+allow appdomain { vendor_shell_exec vendor_toolbox_exec }:file execute_no_trans;
