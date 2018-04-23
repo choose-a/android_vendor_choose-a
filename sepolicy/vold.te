@@ -1,3 +1,6 @@
 # External storage
 allow vold mkfs_exec:file rx_file_perms;
 allow vold storage_stub_file:dir rw_dir_perms;
+
+allow vold logd:dir r_dir_perms;
+allow vold logd:lnk_file r_file_perms;
