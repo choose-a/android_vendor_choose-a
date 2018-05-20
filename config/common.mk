@@ -9,6 +9,10 @@ PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/bootanimation/1080p/bootanimation.zip:system/media/bootanimation.zip
 endif
 
+# Snapdragon camera
+PRODUCT_PACKAGES += \
+    SnapdragonCamera
+
 # DRM
 PRODUCT_COPY_FILES +=  \
     vendor/choose-a/prebuilt/vendor/bin/move_widevine_data.sh:$(TARGET_COPY_OUT_VENDOR)/bin/move_widevine_data.sh \
