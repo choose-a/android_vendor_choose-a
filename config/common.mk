@@ -9,6 +9,10 @@ PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/bootanimation/1080p/bootanimation.zip:system/media/bootanimation.zip
 endif
 
+# Snapdragon camera
+PRODUCT_PACKAGES += \
+    SnapdragonCamera
+
 # DRM
 PRODUCT_COPY_FILES +=  \
     vendor/choose-a/prebuilt/vendor/lib/mediadrm/libwvdrmengine.so:$(TARGET_COPY_OUT_VENDOR)/lib/mediadrm/libwvdrmengine.so \
