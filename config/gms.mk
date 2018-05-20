@@ -43,6 +43,12 @@ PRODUCT_PACKAGES += \
     Music2 \
     TagGoogle
 
+# Snapdragon camera
+TW_USE_TOOLBOX := true
+
+PRODUCT_PACKAGES += \
+    SnapdragonCamera
+
 # DRM
 PRODUCT_COPY_FILES +=  \
     $(VENDOR_CHOOSE_PATH)/prebuilt/common/vendor/bin/hw/android.hardware.drm@1.0-service.widevine:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.drm@1.0-service.widevine \
