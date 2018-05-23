@@ -1,0 +1,4 @@
+#============= untrusted_app_25 ==============
+allow untrusted_app_25 hal_memtrack_hwservice:hwservice_manager find;
+allow untrusted_app_25 proc:file read;
+allow untrusted_app_25 proc_zoneinfo:file read;

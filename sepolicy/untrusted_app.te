@@ -14,3 +14,7 @@ allow untrusted_app device_logging_prop:file { open getattr };
 allow untrusted_app net_dns_prop:file { open getattr };
 allow untrusted_app logpersistd_logging_prop:file { open getattr };
 allow untrusted_app dumpstate_options_prop:file { open getattr };
+
+allow untrusted_app hal_memtrack_hwservice:hwservice_manager find;
+allow untrusted_app proc:file read;
+allow untrusted_app property_socket:sock_file write;
