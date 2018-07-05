@@ -13,3 +13,4 @@ packages/apps/Settings
 packages/inputmethods/LatinIME
 system/core
 system/media
+system/vold
