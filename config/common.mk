@@ -59,6 +59,14 @@ PRODUCT_COPY_FILES += \
 # Add overlays
 PRODUCT_PACKAGE_OVERLAYS += vendor/choose-a/overlay/common
 
+# Permissions Google Apps
+PRODUCT_COPY_FILES += \
+    vendor/choose-a/prebuilt/etc/permissions/privapp-permissions-elgoog.xml:system/etc/permissions/privapp-permissions-elgoog.xml
+
+# Enable SIP and VoIP on all targets
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
+
 # SELinux
 -include vendor/choose-a/sepolicy/sepolicy.mk
 
