@@ -7,7 +7,6 @@ frameworks/native
 hardware/qcom/audio
 hardware/qcom/bootctrl
 hardware/qcom/bt
-hardware/qcom/display
 hardware/qcom/gps
 hardware/qcom/media
 packages/apps/Settings
