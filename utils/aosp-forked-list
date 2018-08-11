@@ -5,6 +5,7 @@ frameworks/av
 frameworks/base
 frameworks/native
 hardware/qcom/audio
+hardware/qcom/bootctrl
 hardware/qcom/bt
 hardware/qcom/display
 hardware/qcom/gps
