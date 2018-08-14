@@ -4,6 +4,7 @@ build/soong
 frameworks/av
 frameworks/base
 frameworks/native
+hardware/broadcom/wlan
 hardware/qcom/audio
 hardware/qcom/bt
 hardware/qcom/display
