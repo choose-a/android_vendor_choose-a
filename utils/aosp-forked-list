@@ -11,6 +11,7 @@ hardware/qcom/display
 hardware/qcom/gps
 hardware/qcom/media
 packages/apps/Settings
+system/bt
 system/core
 system/media
 system/vold
