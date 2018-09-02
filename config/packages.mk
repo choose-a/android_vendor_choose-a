@@ -1,9 +1,6 @@
 # Additional apps
 PRODUCT_PACKAGES += \
-    audio_effects.conf \
     Chromium \
-    libcyanogen-dsp \
-    MatLog \
     MonthCalendarWidget \
     MusicFX \
     OpenDelta \
@@ -15,19 +12,28 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     bash \
     e2fsck \
-    fsck.exfat \
     htop \
     lsof \
     mke2fs \
-    mount.exfat \
     mkshrc_vendor \
     nano \
-    openvpn \
     powertop \
+    rsync \
     sh_vendor \
     toybox_vendor \
     tune2fs \
-    vim
+    vim \
+    zip
+
+# Openssh
+PRODUCT_PACKAGES += \
+    scp \
+    sftp \
+    ssh \
+    sshd \
+    sshd_config \
+    ssh-keygen \
+    start-ssh
 
 # Themes
 PRODUCT_PACKAGES += \
