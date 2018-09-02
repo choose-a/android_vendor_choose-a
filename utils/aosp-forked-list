@@ -4,6 +4,7 @@ build/soong
 frameworks/av
 frameworks/base
 frameworks/native
+hardware/nxp/nfc
 hardware/qcom/audio
 hardware/qcom/bootctrl
 hardware/qcom/bt
