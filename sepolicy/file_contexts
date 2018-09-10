@@ -1,4 +1,2 @@
-# DRM widevine
-/data/vendor/mediadrm(/.*)?                                                     u:object_r:mediadrm_vendor_data_file:s0
-/(system/vendor|vendor)/bin/move_widevine_data\.sh                              u:object_r:move-widevine-data-sh_exec:s0
-/(system/vendor|vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.widevine    u:object_r:hal_drm_widevine_exec:s0
+# DRM
+/(system/vendor|vendor)/bin/hw/android\.hardware\.drm@1\.0-service.widevine          u:object_r:hal_drm_widevine_exec:s0
