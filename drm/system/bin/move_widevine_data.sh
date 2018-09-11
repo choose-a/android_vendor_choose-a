@@ -1,4 +1,4 @@
-#!/vendor/bin/sh
+#!/system/bin/sh
 
 DEST_PATH="/data/vendor/mediadrm"
 FILES_MOVED="/data/vendor/mediadrm/files_moved"
