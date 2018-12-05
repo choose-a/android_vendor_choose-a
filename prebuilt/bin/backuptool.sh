@@ -4,67 +4,104 @@
 #
 
 export C=/tmp/backupdir
-export S=/system
-export V=8.1
+export S=$2
+export V=CR-7
 
-DEBUG=0
+export ADDOND_VERSION=1
+
+# Scripts in /system/addon.d expect to find backuptool.functions in /tmp
+cp -f /tmp/install/bin/backuptool.functions /tmp
 
 # Preserve /system/addon.d in /tmp/addon.d
 preserve_addon_d() {
-  rm -rf /tmp/addon.d/
-  mkdir -p /tmp/addon.d/
-  cp -a /system/addon.d/* /tmp/addon.d/
-  chmod 755 /tmp/addon.d/*.sh
+  if [ -d $S/addon.d/ ]; then
+    mkdir -p /tmp/addon.d/
+    cp -a $S/addon.d/* /tmp/addon.d/
+
+    # Discard any scripts that aren't at least our version level
+    for f in /postinstall/tmp/addon.d/*sh; do
+      SCRIPT_VERSION=$(grep "^# ADDOND_VERSION=" $f | cut -d= -f2)
+      if [ -z "$SCRIPT_VERSION" ]; then
+        SCRIPT_VERSION=1
+      fi
+      if [ $SCRIPT_VERSION -lt $ADDOND_VERSION ]; then
+        rm $f
+      fi
+    done
+
+    chmod 755 /tmp/addon.d/*.sh
+  fi
 }
 
-# Restore /system/addon.d in /tmp/addon.d
+# Restore /system/addon.d from /tmp/addon.d
 restore_addon_d() {
-  cp -a /tmp/addon.d/* /system/addon.d/
-  rm -rf /tmp/addon.d/
+  if [ -d /tmp/addon.d/ ]; then
+    mkdir -p $S/addon.d/
+    cp -a /tmp/addon.d/* $S/addon.d/
+    rm -rf /tmp/addon.d/
+  fi
 }
 
-# Restore only if backup has the expected major and minor version
+# Proceed only if /system is the expected major and minor version
 check_prereq() {
-  if [ ! -f /tmp/build.prop ]; then
-    # this will block any backups made before 8 cause file was not copied before
-    echo "Not restoring files from incompatible version: $V"
-    exit 127
-  fi
-  if ( ! grep -q "^ro.build.version.release=$V.*" /tmp/build.prop ); then
-    echo "Not restoring files from incompatible version: $V"
-    exit 127
-  fi
+# If there is no build.prop file the partition is probably empty.
+if [ ! -r $S/build.prop ]; then
+    return 0
+fi
+if ( ! grep -q "^ro.choose.version=$V.*" $S/build.prop ); then
+  echo "Not backing up files from incompatible version: $V"
+  return 0
+fi
+return 1
 }
 
 check_blacklist() {
-  if [ -f /system/addon.d/blacklist ];then
-    ## Discard any known bad backup scripts
-    cd /$1/addon.d/
-    for f in *sh; do
-      s=$(md5sum $f | awk {'print $1'})
-      grep -q $s /system/addon.d/blacklist && rm -f $f
-    done
+  if [ -f $S/addon.d/blacklist -a -d /$1/addon.d/ ]; then
+      ## Discard any known bad backup scripts
+      cd /$1/addon.d/
+      for f in *sh; do
+          [ -f $f ] || continue
+          s=$(md5sum $f | cut -c-32)
+          grep -q $s $S/addon.d/blacklist && rm -f $f
+      done
   fi
+}
+
+check_whitelist() {
+  found=0
+  if [ -f $S/addon.d/whitelist ];then
+      ## forcefully keep any version-independent stuff
+      cd /$1/addon.d/
+      for f in *sh; do
+          s=$(md5sum $f | cut -c-32)
+          grep -q $s $S/addon.d/whitelist
+          if [ $? -eq 0 ]; then
+              found=1
+          else
+              rm -f $f
+          fi
+      done
+  fi
+  return $found
 }
 
 # Execute /system/addon.d/*.sh scripts with $1 parameter
 run_stage() {
+if [ -d /tmp/addon.d/ ]; then
   for script in $(find /tmp/addon.d/ -name '*.sh' |sort -n); do
-    if [ $DEBUG -eq 1 ]; then
-        echo run_stage $script $1
-    fi
     $script $1
   done
+fi
 }
 
 case "$1" in
   backup)
-    # make sure we dont start with any leftovers
-    rm -rf $C
-    cp /system/bin/backuptool.functions /tmp
-    cp /system/build.prop /tmp
     mkdir -p $C
-    #check_prereq
+    if check_prereq; then
+        if check_whitelist system; then
+            exit 127
+        fi
+    fi
     check_blacklist system
     preserve_addon_d
     run_stage pre-backup
@@ -72,8 +109,11 @@ case "$1" in
     run_stage post-backup
   ;;
   restore)
-    cp /system/bin/backuptool.functions /tmp
-    check_prereq
+    if check_prereq; then
+        if check_whitelist tmp; then
+            exit 127
+        fi
+    fi
     check_blacklist tmp
     run_stage pre-restore
     run_stage restore
