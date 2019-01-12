@@ -9,13 +9,6 @@ PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/bootanimation/1080p/bootanimation.zip:system/media/bootanimation.zip
 endif
 
-# DRM
-PRODUCT_COPY_FILES +=  \
-    vendor/choose-a/prebuilt/vendor/lib/mediadrm/libwvdrmengine.so:$(TARGET_COPY_OUT_VENDOR)/lib/mediadrm/libwvdrmengine.so \
-    vendor/choose-a/prebuilt/vendor/bin/hw/android.hardware.drm@1.0-service.widevine:$(TARGET_COPY_OUT_VENDOR)/bin/hw/android.hardware.drm@1.0-service.widevine \
-    vendor/choose-a/prebuilt/vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.drm@1.0-service.widevine.rc \
-    vendor/choose-a/prebuilt/vendor/lib/libwvhidl.so:$(TARGET_COPY_OUT_VENDOR)/lib/libwvhidl.so
-
 # GSM APN list
 PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
