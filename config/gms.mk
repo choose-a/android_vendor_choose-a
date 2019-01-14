@@ -2,7 +2,8 @@ VENDOR_CHOOSE_PATH := vendor/choose-a
 
 # Permissions Google Apps
 PRODUCT_COPY_FILES += \
-    vendor/choose-a/prebuilt/etc/permissions/privapp-permissions-elgoog.xml:system/etc/permissions/privapp-permissions-elgoog.xml
+    vendor/choose-a/prebuilt/etc/permissions/privapp-permissions-elgoog.xml:system/etc/permissions/privapp-permissions-elgoog.xml \
+    vendor/choose-a/prebuilt/etc/permissions/privapp-permissions-choose.xml:system/etc/permissions/privapp-permissions-choose.xml
 
 # Google property overides
 PRODUCT_PROPERTY_OVERRIDES += \
