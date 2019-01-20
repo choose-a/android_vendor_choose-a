@@ -55,10 +55,11 @@ GAPPS_PRODUCT_PACKAGES += \
 
 # Override stock AOSP apps
 PRODUCT_PACKAGES += \
-    GoogleCamera \
     GoogleContacts \
     LatinImeGoogle \
     Music2 \
     TagGoogle
+
+GAPPS_EXCLUDED_PACKAGES := GoogleCamera
 
 $(call inherit-product-if-exists, vendor/opengapps/build/opengapps-packages.mk)
