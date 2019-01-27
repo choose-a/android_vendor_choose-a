@@ -9,6 +9,10 @@ PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/bootanimation/1080p/bootanimation.zip:system/media/bootanimation.zip
 endif
 
+# Snapdragon camera
+PRODUCT_PACKAGES += \
+    SnapdragonCamera
+
 # GSM APN list
 PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
