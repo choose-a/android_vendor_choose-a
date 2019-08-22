@@ -44,20 +44,16 @@ GAPPS_FORCE_DIALER_OVERRIDES := true
 GAPPS_FORCE_MMS_OVERRIDES := true
 
 # Plus mini
-GAPPS_PRODUCT_PACKAGES += \
-    Books \
-    Drive \
-    FitnessPrebuilt \
-    Music2 \
-    PlayGames \
-    PrebuiltKeep \
-    talkback
-
-# Override stock AOSP apps
 PRODUCT_PACKAGES += \
+    CalculatorGoogle \
     GoogleContacts \
+    GoogleExtServices \
+    GoogleExtShared \
+    GooglePrintRecommendationService \
     LatinImeGoogle \
     Music2 \
+    Photos \
+    PrebuiltDeskClockGoogle \
     TagGoogle
 
 GAPPS_EXCLUDED_PACKAGES := GoogleCamera
