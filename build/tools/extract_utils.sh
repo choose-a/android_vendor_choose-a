@@ -828,7 +828,7 @@ function oat2dex() {
         else
            export OATDUMP="$ANDROID_HOST_OUT/bin/oatdump"
         fi
-        export VDEXEXTRACTOR="$CM_ROOT"/vendor/omni/build/tools/"$HOST"/vdexExtractor
+        export VDEXEXTRACTOR="$CM_ROOT"/vendor/choose-a/build/tools/"$HOST"/vdexExtractor
    fi
 
     if [ -z "$CDEXCONVERTER" ]; then
