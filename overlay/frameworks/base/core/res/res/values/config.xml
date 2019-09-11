@@ -11,7 +11,18 @@
 
     <bool name="config_cellBroadcastAppLinks">true</bool>
 
-    <!-- Control whether Night display is available. This should only be enabled on devices
+    <string-array translatable="false" name="config_defaultPinnerServiceFiles">
+        <item>"/system/framework/arm64/boot-framework.oat"</item>
+        <item>"/system/framework/boot-framework.vdex"</item>
+        <item>"/system/framework/oat/arm64/services.odex"</item>
+        <item>"/system/framework/oat/arm64/services.vdex"</item>
+        <item>"/system/framework/arm64/boot.oat"</item>
+        <item>"/system/framework/boot.vdex"</item>
+        <item>"/system/framework/arm64/boot-core-libart.oat"</item>
+        <item>"/system/framework/boot-core-libart.vdex"</item>
+</string-array>
+
+<!-- Control whether Night display is available. This should only be enabled on devices
          with HWC 2.0 or higher. -->
     <bool name="config_nightDisplayAvailable">true</bool>
 </resources>
