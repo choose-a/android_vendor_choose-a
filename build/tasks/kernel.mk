@@ -72,8 +72,6 @@
 
 ifneq ($(TARGET_NO_KERNEL),true)
 
--include vendor/choose/config/branding.mk
-
 TARGET_AUTO_KDIR := $(shell echo $(TARGET_DEVICE_DIR) | sed -e 's/^device/kernel/g')
 
 ## Externally influenced variables
