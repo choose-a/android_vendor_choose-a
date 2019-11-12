@@ -153,6 +153,9 @@ endif
 
 ifeq ($(FULL_KERNEL_BUILD),true)
 
+KERNEL_HEADERS_INSTALL := $(KERNEL_OUT)/usr
+KERNEL_HEADERS_INSTALL_STAMP := $(KERNEL_OUT)/.headers_install_stamp
+
 ifeq ($(NEED_KERNEL_MODULE_ROOT),true)
 KERNEL_MODULES_OUT := $(TARGET_ROOT_OUT)
 KERNEL_DEPMOD_STAGING_DIR := $(call intermediates-dir-for,PACKAGING,depmod_recovery)
