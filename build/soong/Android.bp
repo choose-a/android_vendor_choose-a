@@ -1,14 +1,14 @@
 bootstrap_go_package {
-    name: "soong-coose",
-    pkgPath: "coose/soong/android",
+    name: "soong-choose",
+    pkgPath: "choose/soong/android",
     srcs: [
         "android/variable.go",
     ],
 }
 
 bootstrap_go_package {
-    name: "soong-coose-generator",
-    pkgPath: "coose/soong/generator",
+    name: "soong-choose-generator",
+    pkgPath: "choose/soong/generator",
     deps: [
         "blueprint",
         "blueprint-pathtools",

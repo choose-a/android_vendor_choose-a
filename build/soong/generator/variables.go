@@ -6,12 +6,12 @@ import (
 	"android/soong/android"
 )
 
-func cooseExpandVariables(ctx android.ModuleContext, in string) string {
-	cooseVars := ctx.Config().VendorConfig("cooseVarsPlugin")
+func chooseExpandVariables(ctx android.ModuleContext, in string) string {
+	chooseVars := ctx.Config().VendorConfig("chooseVarsPlugin")
 
 	out, err := android.Expand(in, func(name string) (string, error) {
-		if cooseVars.IsSet(name) {
-			return cooseVars.String(name), nil
+		if chooseVars.IsSet(name) {
+			return chooseVars.String(name), nil
 		}
 		// This variable is not for us, restore what the original
 		// variable string will have looked like for an Expand
