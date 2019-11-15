@@ -73,10 +73,6 @@ else ifneq ($(KERNEL_TOOLCHAIN_PREFIX),)
 KERNEL_TOOLCHAIN_PATH := $(KERNEL_TOOLCHAIN)/$(KERNEL_TOOLCHAIN_PREFIX)
 endif
 
-# We need to add GCC toolchain to the path no matter what
-# for tools like `as`
-KERNEL_TOOLCHAIN_PATH_gcc := $(KERNEL_TOOLCHAIN_$(KERNEL_ARCH))/$(KERNEL_TOOLCHAIN_PREFIX_$(KERNEL_ARCH))
-
 ifneq ($(USE_CCACHE),)
     # Detect if the system already has ccache installed to use instead of the prebuilt
     CCACHE_BIN := $(shell which ccache)
@@ -129,12 +125,4 @@ ifeq ($(TARGET_NEEDS_DTBOIMAGE),true)
 BOARD_PREBUILT_DTBOIMAGE ?= $(PRODUCT_OUT)/dtbo/arch/$(KERNEL_ARCH)/boot/dtbo.img
 else ifeq ($(BOARD_KERNEL_SEPARATED_DTBO),true)
 BOARD_PREBUILT_DTBOIMAGE ?= $(PRODUCT_OUT)/dtbo-pre.img
-endif
-
-# Set the out dir for the kernel's O= arg
-# This needs to be an absolute path, so only set this if the standard out dir isn't used
-OUT_DIR_PREFIX := $(shell echo $(OUT_DIR) | sed -e 's|/target/.*$$||g')
-KERNEL_BUILD_OUT_PREFIX :=
-ifeq ($(OUT_DIR_PREFIX),out)
-KERNEL_BUILD_OUT_PREFIX := $(BUILD_TOP)/
 endif
