@@ -122,6 +122,7 @@ def main(argv):
 
                 # Position output file
                 output_img.seek(begin*BLOCK_SIZE)
+                
                 # Copy one block at a time
                 while(block_count > 0):
                     output_img.write(new_data_file.read(BLOCK_SIZE))

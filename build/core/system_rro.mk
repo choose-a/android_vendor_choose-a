@@ -1,6 +1,4 @@
-# Copyright (C) 2017 Unlegacy-Android
-# Copyright (C) 2017 The LineageOS Project
-# Copyright (C) 2018 CarbonROM
+# Copyright (C) 2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,10 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+LOCAL_IS_RUNTIME_RESOURCE_OVERLAY := true
 
-CHOOSE_TARGET_PACKAGE := $(PRODUCT_OUT)/CHOOSE-$(ROM_VERSION).zip
+ifneq ($(LOCAL_SRC_FILES),)
+  $(error runtime resource overlay package should not contain sources)
+endif
 
-.PHONY: bacon
-bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
-	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(CHOOSE_TARGET_PACKAGE)
-	$(hide) $(MD5SUM) $(CHOOSE_TARGET_PACKAGE) > $(CHOOSE_TARGET_PACKAGE).md5sum
+ifeq ($(LOCAL_RRO_THEME),)
+  $(error runtime resource overlay package must define \'LOCAL_RRO_THEME\')
+else
+  LOCAL_MODULE_PATH := $(TARGET_OUT)/app/$(LOCAL_RRO_THEME)
+endif
+
+include $(BUILD_SYSTEM)/package.mk
+
