@@ -18,7 +18,6 @@ hardware/qcom/display
 hardware/qcom/gps
 hardware/qcom/media
 hardware/qcom/keymaster
-hardware/qcom/wlan
 hardware/ril
 packages/apps/PhoneCommon
 packages/apps/Settings
