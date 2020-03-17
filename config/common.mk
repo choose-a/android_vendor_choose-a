@@ -9,6 +9,10 @@ PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/bootanimation/1080p/bootanimation.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
 endif
 
+# Copy changelog
+PRODUCT_COPY_FILES += \
+    vendor/choose-a/prebuilt/etc/Changelog.txt:system/etc/Changelog.txt
+
 # Snapdragon camera
 PRODUCT_PACKAGES += \
     SnapdragonCamera

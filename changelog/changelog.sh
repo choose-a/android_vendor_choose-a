@@ -30,7 +30,7 @@ done
 sed -i 's/project/   */g' $Changelog
 
 # Copy Used by our build server
-cp $Changelog /mnt/users/*/build/target/product/*/system/etc/
+cp $Changelog vendor/choose-a/prebuilt/etc/
 # end
 cp $Changelog $OUT/system/etc/
 cp $Changelog $OUT/
