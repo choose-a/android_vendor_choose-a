@@ -32,6 +32,10 @@ PRODUCT_PACKAGES += \
     ssh-keygen \
     start-ssh
 
+# Utils
+PRODUCT_PACKAGES += \
+    choose-util
+
 # Telephony extension
 PRODUCT_PACKAGES += telephony-ext
 PRODUCT_BOOT_JARS += telephony-ext
