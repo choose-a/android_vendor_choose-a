@@ -19,7 +19,7 @@ read username
 
 url="review.choose-a.name"
 port="29418"
-branch="choose-9.0"
+branch="choose-10.0"
 
 cd ../../../
 
