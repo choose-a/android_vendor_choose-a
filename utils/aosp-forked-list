@@ -25,4 +25,5 @@ packages/services/Telephony
 packages/services/Telecomm
 system/core
 system/sepolicy
+system/update_engine
 system/vold
