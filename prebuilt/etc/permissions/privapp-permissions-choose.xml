@@ -12,5 +12,7 @@
         <permission name="android.permission.REBOOT"/>
         <permission name="android.permission.RECOVERY"/>
         <permission name="android.permission.MANAGE_USERS"/>
+	<permission name="android.permission.BROADCAST_STICKY"/>
+	<permission name="android.permission.WRITE_MEDIA_STORAGE"/>
     </privapp-permissions>
 </permissions>
