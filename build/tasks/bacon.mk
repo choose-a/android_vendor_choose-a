@@ -15,7 +15,7 @@
 # limitations under the License.
 
 
-CHOOSE_TARGET_PACKAGE := $(PRODUCT_OUT)/$(CHOOSE_VERSION).zip
+CHOOSE_TARGET_PACKAGE := $(PRODUCT_OUT)/choose-$(CHOOSE_VERSION).zip
 
 .PHONY: bacon
 bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
