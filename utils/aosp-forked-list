@@ -24,6 +24,7 @@ packages/apps/PhoneCommon
 packages/apps/Settings
 packages/services/Telephony
 packages/services/Telecomm
+system/bt
 system/core
 system/sepolicy
 system/update_engine
