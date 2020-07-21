@@ -19,6 +19,7 @@ hardware/qcom/gps
 hardware/qcom/media
 hardware/qcom/keymaster
 hardware/ril
+packages/apps/Bluetooth
 packages/apps/PhoneCommon
 packages/apps/Settings
 packages/services/Telephony
