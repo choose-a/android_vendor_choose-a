@@ -47,7 +47,7 @@ local_manifest_dir = ".repo/local_manifests"
 # change this to your name on github (or equivalent hosting)
 android_team = "choose-a"
 # url to gerrit repository
-gerrit_url = "review.choose-a.name"
+gerrit_url = "gerrit.castricum.nu"
 
 
 def urldecode(s):

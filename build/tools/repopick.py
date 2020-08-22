@@ -144,7 +144,7 @@ def fetch_query(remote_url, query):
 
 if __name__ == '__main__':
     # Default to OmniRom Gerrit
-    default_gerrit = 'https://review.choose-a.name'
+    default_gerrit = 'https://gerrit.castricum.nu'
 
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter, description=textwrap.dedent('''\
         repopick.py is a utility to simplify the process of cherry picking

@@ -17,7 +17,7 @@
 echo -e "Enter the username"
 read username
 
-url="review.choose-a.name"
+url="gerrit.castricum.nu"
 port="29418"
 branch="choose-10.0"
 
