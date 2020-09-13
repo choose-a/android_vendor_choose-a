@@ -35,7 +35,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opa.eligible_device=true
 
 # OpenGapps
-GAPPS_VARIANT := mini
+GAPPS_VARIANT := micro
 GAPPS_FORCE_PACKAGE_OVERRIDES := true
 GAPPS_FORCE_WEBVIEW_OVERRIDES := true
 GAPPS_FORCE_BROWSER_OVERRIDES := true
@@ -55,7 +55,5 @@ PRODUCT_PACKAGES += \
     Photos \
     PrebuiltDeskClockGoogle \
     TagGoogle
-
-GAPPS_EXCLUDED_PACKAGES := GoogleCamera
 
 $(call inherit-product-if-exists, vendor/opengapps/build/opengapps-packages.mk)
