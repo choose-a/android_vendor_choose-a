@@ -13,9 +13,9 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/choose-a/prebuilt/etc/Changelog.txt:system/etc/Changelog.txt
 
-# Snapdragon camera
+# Snapdragon gallery
 PRODUCT_PACKAGES += \
-    SnapdragonCamera
+    SnapdragonGallery
 
 # GSM APN list
 PRODUCT_COPY_FILES += \
